@@ -47,18 +47,18 @@ import ToDoList from '@/components/Todo/TodoList.vue';
 export default class App extends Vue {
   public tasksList: [] = [];
 
-  get listTasks() {
+  public model = '';
+
+  get listTasks(): [] {
     return this.tasksList;
   }
 
-  public model = '';
-
-  addNewTask() {
+  addNewTask(): [] {
     this.tasksList.push(this.model);
     this.model = '';
   }
 
-  deleteTask(id: string) {
+  deleteTask(id: string): [] {
     this.tasksList = this.tasksList.filter((item) => item !== id);
   }
 }
