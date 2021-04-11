@@ -2,4 +2,62 @@ body {
   font: $font-size-base $font-global;
   line-height: 1.2;
   color: $color-black;
+  background: $color-gradient-end;
+}
+
+.app {
+
+  &__title {
+    color: $color-white;
+    font-size: 30px;
+  }
+
+  &__container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  &__modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 500px;
+    flex-direction: column;
+  }
+
+  &__icon {
+    color: $success;
+    cursor: pointer;
+    transition: opacity .15s ease-in;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  &__task {
+    color: $color-black;
+    border-radius: $borderRadius;
+    background: $color-white;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 20px;
+
+    input {
+      border: none;
+      outline: none;
+      margin-right: 15px;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
 }
