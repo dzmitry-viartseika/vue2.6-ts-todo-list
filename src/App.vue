@@ -45,21 +45,30 @@ import ToDoList from '@/components/Todo/TodoList.vue';
   },
 })
 export default class App extends Vue {
-  public tasksList: [] = [];
+  public tasksList: string[] = [];
 
   public model = '';
 
-  get listTasks(): [] {
+  get listTasks(): string[] {
     return this.tasksList;
   }
 
-  addNewTask(): [] {
+  addNewTask(): void {
     this.tasksList.push(this.model);
+    localStorage.setItem('tasksList', JSON.stringify(this.tasksList));
     this.model = '';
   }
 
-  deleteTask(id: string): [] {
+  deleteTask(id: string) {
     this.tasksList = this.tasksList.filter((item) => item !== id);
+    localStorage.setItem('tasksList', JSON.stringify(this.tasksList));
+  }
+
+  created() {
+    const tasksList = localStorage.getItem('tasksList');
+    if (tasksList) {
+      this.tasksList = JSON.parse(tasksList);
+    }
   }
 }
 
