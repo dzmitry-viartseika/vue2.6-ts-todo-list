@@ -15,9 +15,9 @@ import { Prop, PropSync } from 'vue-property-decorator';
 export default class InputTemplate extends Vue {
   @Prop({ required: true }) readonly type: string
 
-  @Prop({ required: true }) readonly focus: boolean
+  @Prop({ required: true, default: false }) readonly focus: boolean
 
-  @Prop({ required: true }) readonly placeholder: boolean
+  @Prop({ required: true, default: true }) readonly placeholder: boolean
 
   @PropSync('value', { type: String }) model!: string
 }
